@@ -77,8 +77,8 @@ class AreaWidget(forms.TextInput):
         """
         Return the appropriate values
         """
-        return (data['lat_upper_left'], data['lon_upper_left'],
-                 data['lat_bottom_right'], data['lon_bottom_right'])
+        return (data.get('lat_upper_left'), data.get('lon_upper_left'),
+                 data.get('lat_bottom_right'), data.get('lon_bottom_right'))
 
 class AreaField(forms.MultiValueField):
     '''

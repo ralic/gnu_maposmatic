@@ -280,6 +280,8 @@ def api_papersize(request):
         except ValueError:
             LOG.exception("Error determining compatible paper sizes")
             raise
+        except LookupError, e:
+            return HttpResponseBadRequest(str(e))
         bbox = ocitysmap.coords.BoundingBox.parse_wkt(bbox_wkt)
     else:
         lat_upper_left = f.cleaned_data.get("lat_upper_left")
